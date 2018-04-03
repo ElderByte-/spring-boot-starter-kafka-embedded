@@ -1,4 +1,5 @@
-
+ [ ![Download](https://api.bintray.com/packages/elderbyte/maven/spring-boot-starter-kafka-embedded/images/download.svg) ]
+ (https://bintray.com/elderbyte/maven/spring-boot-starter-kafka-embedded/_latestVersion)
 
 # spring-boot-starter-kafka-embedded
 Provides spring auto configuration for an embedded Kafka message broker.
