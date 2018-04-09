@@ -1,11 +1,11 @@
 import org.gradle.api.logging.configuration.ShowStacktrace
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3.1'
+    gradleVersion = '4.6'
 }
 
 allprojects {
-    version =  '2.0.0.E2'
+    version =  '2.0.1.E2'
     group = 'com.elderbyte.spring.boot'
 
     //Always show stacktrace
@@ -14,7 +14,7 @@ allprojects {
 
 subprojects {
     ext {
-        springBootVersion = '2.0.0.RELEASE'
+        springBootVersion = '2.0.1.RELEASE'
         qpidVersion = '7.0.2'
         jaxbVersion = '2.2.11'
     }
