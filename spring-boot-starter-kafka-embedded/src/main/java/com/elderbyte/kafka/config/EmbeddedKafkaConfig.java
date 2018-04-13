@@ -1,5 +1,6 @@
 package com.elderbyte.kafka.config;
 
+import kafka.server.KafkaConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.kafka.test.rule.KafkaEmbedded;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.HashMap;
 
 /**
  * Configures and starts an embedded Kafka Server.
@@ -45,8 +47,12 @@ public class EmbeddedKafkaConfig {
         log.info("Starting embedded kafka ...");
 
         try {
-            embedded = new KafkaEmbedded(1, false, partitions);
-            embedded.setKafkaPorts(kafkaPort);
+            embedded = new KafkaEmbedded(2, false, partitions);
+            embedded.setKafkaPorts(kafkaPort, 9093);
+
+            embedded.brokerProperty(KafkaConfig.AutoCreateTopicsEnableProp(), true);
+            embedded.brokerProperty("transaction.state.log.replication.factor", (short)2);
+
             embedded.before();
             log.info("Embedded Kafka ready!");
         }catch (Exception e){

@@ -1,0 +1,7 @@
+
+kafka.embedded:
+  enabled: true
+  port: 9092
+  partitions: 1
+
+
